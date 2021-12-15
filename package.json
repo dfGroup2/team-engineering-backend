@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "SET NODE_ENV=test&& mocha --timeout 10000 --exit",
+    "start": "SET NODE_ENV=dev&& nodemon server",
+    "start-p": "SET NODE_ENV=production&& node server"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,10 @@
     "express": "^4.17.1",
     "express-validator": "^6.14.0",
     "mongoose": "^6.1.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "mocha": "^9.1.3"
   }
 }
