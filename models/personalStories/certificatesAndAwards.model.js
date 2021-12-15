@@ -11,8 +11,6 @@ const certificatesAndAwardsSchema = new Schema({
     weight: { type: String },
     priority: { type: Number },
     description: { type: String },
-
-
 });
 
 const CertificatesAndAwards = mongoose.model("CertificatesAndAwards", certificatesAndAwardsSchema);

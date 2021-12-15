@@ -9,7 +9,6 @@ const portfolioSchema = new Schema({
     weight: { type: String },
     priority: { type: Number },
     description: { type: String },
-
 });
 
 const Portfolio = mongoose.model("Portfolio", portfolioSchema);
