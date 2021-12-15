@@ -2,8 +2,8 @@ const chai = require('chai');
 const chaiHTTP = require('chai-http');
 const server = require('../server');
 const { expect } = require('chai');
-import testGraduateProfile from './testData/testGraduateProfile.json';
-import { GraduateProfile } from '../models/graduateProfile.model.js';
+const testGraduateProfile = require('./testData/testGraduateProfile.json');
+const { GraduateProfile } = require('../models/graduateProfile.model.js');
 
 chai.use(chaiHTTP);
 
