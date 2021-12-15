@@ -1,0 +1,44 @@
+[
+    {
+        "firstName": "DummyFirstName",
+        "lastName": "DummySurname",
+        "personalEmail": "dummy@email.com",
+        "DFEmail": "dummyDF@email.com",
+        "github": "dummyGit",
+        "linkedIn": "dummyLinkedIn",
+        "phoneNumber": "123456",
+        "profilePicture": "hello",
+        "personalStory": "dummy story",
+        "gender": "male",
+        "nationality": "english",
+        "personality": "dummyPersonality"
+    },
+    {
+        "firstName": "DummyFirstName2",
+        "lastName": "DummySurname2",
+        "personalEmail": "dummy2@email.com",
+        "DFEmail": "dummyDF2@email.com",
+        "github": "dummyGit2",
+        "linkedIn": "dummyLinkedIn2",
+        "phoneNumber": "1234562",
+        "profilePicture": "hello2",
+        "personalStory": "dummy story2",
+        "gender": "female",
+        "nationality": "american",
+        "personality": "dummyPersonality2"
+    },
+    {
+        "firstName": "DummyFirstName3",
+        "lastName": "DummySurname3",
+        "personalEmail": "dummy3@email.com",
+        "DFEmail": "dummyDF3@email.com",
+        "github": "dummyGit3",
+        "linkedIn": "dummyLinkedIn3",
+        "phoneNumber": "1234563",
+        "profilePicture": "hello3",
+        "personalStory": "dummy story3",
+        "gender": "other",
+        "nationality": "european",
+        "personality": "dummyPersonality3"
+    }
+]
