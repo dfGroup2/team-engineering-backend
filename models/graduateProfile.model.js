@@ -18,4 +18,5 @@ const graduateProfileSchema = new Schema({
 });
 
 const GraduateProfile = mongoose.model('GraduateProfile', graduateProfileSchema);
-module.exports = GraduateProfile;
+
+export { graduateProfileSchema, GraduateProfile };

@@ -37,4 +37,4 @@ const graduateTrainingSchema = new Schema({
 });
 
 const GraduateTraining = mongoose.model('GraduateTraining', graduateTrainingSchema);
-module.exports = GraduateTraining;
+export { graduateTrainingSchema, GraduateTraining };
