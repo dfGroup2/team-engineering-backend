@@ -8,7 +8,8 @@ const { GraduateProfile } = require('../models/graduateProfile.model.js');
 chai.use(chaiHTTP);
 
 const path = '/graduateProfiles';
-const id1 = '61bb122f2fc37a8c901f7d3c';
+
+const id1 = "61bb122f2fc37a8c901f7d3c";
 const id2 = "61bb122f2fc37a8c901f7d3d";
 const id3 = "61bb122f2fc37a8c901f7d3e";
 
@@ -36,4 +37,13 @@ describe('test for graduate profile route', () => {
         expect(response.body).to.be.an.equal('Object');
         expect(response.body).to.be.an.instanceOf(GraduateProfile);
     });
+
+    it(`get request to /graduateProfile/:id route with invalid id should have status 400 and an error object sent back`, async () => {
+        const response = await chai.request(server)
+            .get(`${path}/nonExistentId`)
+
+        expect(response).to.have.status(400);
+        expect(response.body).to.be.an('object');
+        expect(response.body).to.have.property("message", "invalid id");
+    })
 });

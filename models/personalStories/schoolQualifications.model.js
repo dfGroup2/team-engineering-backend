@@ -17,4 +17,4 @@ const schoolQualificationsSchema = new Schema({
 });
 
 const SchoolQualifications = mongoose.model("SchoolQualifications", schoolQualificationsSchema);
-module.export = { schoolQualificationsSchema, SchoolQualifications };
+module.exports = { schoolQualificationsSchema, SchoolQualifications };

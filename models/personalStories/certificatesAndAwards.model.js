@@ -14,4 +14,4 @@ const certificatesAndAwardsSchema = new Schema({
 });
 
 const CertificatesAndAwards = mongoose.model("CertificatesAndAwards", certificatesAndAwardsSchema);
-module.export = { certificatesAndAwardsSchema, CertificatesAndAwards };
+module.exports = { certificatesAndAwardsSchema, CertificatesAndAwards };

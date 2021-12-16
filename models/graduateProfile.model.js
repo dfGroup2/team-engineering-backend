@@ -17,6 +17,6 @@ const graduateProfileSchema = new Schema({
     personality: { type: String, required: true },
 });
 
-const GraduateProfilex = mongoose.model('GraduateProfile', graduateProfileSchema);
+const GraduateProfile = mongoose.model('GraduateProfile', graduateProfileSchema);
 
-module.exports = { graduateProfileSchema, GraduateProfilex };
+module.exports = { graduateProfileSchema, GraduateProfile };

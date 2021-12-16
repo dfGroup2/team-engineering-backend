@@ -17,4 +17,4 @@ const degreeSchema = new Schema({
 });
 
 const Degree = mongoose.model("Degree", degreeSchema);
-module.export = { degreeSchema, Degree };
+module.exports = { degreeSchema, Degree };
