@@ -1,6 +1,6 @@
 const express = require('express');
 
-const GraduateProfile = require('../models/graduateProfile.model');
+const { GraduateProfile } = require('../models/graduateProfile.model');
 const router = express.Router();
 
 router.route(`/:id`)

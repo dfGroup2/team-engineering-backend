@@ -33,9 +33,12 @@ describe('test for graduate profile route', () => {
     it('get request to /graduate profile route should have status 200 and a graduate profile object sent back', async () => {
         const response = await chai.request(server)
             .get(`${path}/${id1}`)
+            .send();
         expect(response).to.have.status(200);
         expect(response.body).to.be.an('Object');
-        expect(response.body).to.be.an.instanceOf(GraduateProfile);
+        delete response.body.__v;
+        expect(response.body).to.be.deep.equal(testGraduateProfile.find(graduate => graduate._id === id1));
+
     });
 
     it(`get request to /graduateProfile/:id route with invalid id should have status 400 and an error object sent back`, async () => {
