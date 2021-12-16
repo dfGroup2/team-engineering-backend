@@ -1,0 +1,33 @@
+{
+    "_id": "61bb122f2fc37a8c901f7d3c",
+    "learningPath": "DummyLearningPath",
+    "cohort": "DummyCohort",
+    "trainer": "DummyTrainer",
+    "finishedDate": "2021-12-16T13:20:36.186Z",
+    "courseModules": {
+        "fundamentals": {
+            "javascript programming": "DummyJavaScript"
+        },
+        "software design": {
+            "bank challenge": "pending",
+            "news summary challenge": "passed",
+            "rock paper scissors challenge": "merit",
+            "chitter challenge": "pending",
+            "test-driven development": "pending"
+        },
+        "software development 1": {
+            "3rd party integration": "Dummy3rdParty"
+        },
+        "software development 2": {
+            "business services": "DummyBusinessServices",
+            "full-stack application": "DummyFullStack"
+        },
+        "team engineering": {
+            "java challenge": "DummyJava",
+            "agile team collaboration": "DummyAgile"
+        },
+        "professional skills": {
+            "interview challenges": "DummyInterview"
+        }
+    }
+}

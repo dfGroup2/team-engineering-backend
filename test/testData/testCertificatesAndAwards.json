@@ -1,0 +1,20 @@
+[
+    {
+        "type": "DummyType",
+        "issuer": "DummyIssuer",
+        "award": { type: String
+        },
+        "grade": { type: String
+        },
+        "year": { type: Date, required: true, match: [isoDateRegex,
+                "Date is invalid"
+            ]
+        },
+    weight: { type: String
+        },
+    priority: { type: Number
+        },
+    description: { type: String
+        },
+    }
+]

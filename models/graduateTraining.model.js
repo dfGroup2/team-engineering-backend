@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-const { isoDateRegex } = require('../js/regularExpressions').default;
+const { isoDateRegex } = require('../js/regularExpressions');
 
 const { Schema } = mongoose;
 const graduateTrainingSchema = new Schema({
-	learningPath = { type: String, required: true },
-	cohort = { type: String, required: true },
-	trainer = { type: String, required: true },
-	finishedDate = { type: Date, required: true, match: [isoDateRegex, "invalid date"] },
-	courseModules = {
+	learningPath: { type: String, required: true },
+	cohort: { type: String, required: true },
+	trainer: { type: String, required: true },
+	finishedDate: { type: Date, required: true, match: [isoDateRegex, "invalid date"] },
+	courseModules: {
 		// Might have to change these later
-		fundamentals = {
+		fundamentals: {
 			"javascript programming": { type: String, required: true }
 		},
 		"software design": {
