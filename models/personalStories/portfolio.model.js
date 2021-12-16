@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-import { isoDateRegex } from '../../js/regularExpressions';
+const { isoDateRegex } = require('../../js/regularExpressions').default;
 
 const { Schema } = mongoose;
 const portfolioSchema = new Schema({
@@ -12,4 +12,4 @@ const portfolioSchema = new Schema({
 });
 
 const Portfolio = mongoose.model("Portfolio", portfolioSchema);
-export { portfolioSchema, Portfolio };
+module.export = { portfolioSchema, Portfolio };

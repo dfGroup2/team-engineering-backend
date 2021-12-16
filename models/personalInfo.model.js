@@ -9,4 +9,4 @@ const personalInfoSchema = new Schema({
 });
 
 const PersonalInfo = mongoose.model("PersonalInfo", personalInfoSchema);
-export { personalInfoSchema, PersonalInfo };
+module.exports = { personalInfoSchema, PersonalInfo };

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-import graduateProfileSchema from './graduateProfile.model';
-import graduateTrainingSchema from './graduateTraining.model';
+const graduateProfileSchema = require('./graduateProfile.model');
+const graduateTrainingSchema = require('./graduateTraining.model');
 
 const { Schema } = mongoose;
 const graduateUserSchema = new Schema({
@@ -12,4 +12,4 @@ const graduateUserSchema = new Schema({
 });
 
 const GraduateUser = mongoose.model("graduateUser", graduateUserSchema);
-export default GraduateUser;
+module.exports = GraduateUser;

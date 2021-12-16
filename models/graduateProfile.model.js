@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-import { emailRegex } from '../js/regularExpressions';
+const { emailRegex } = require('../js/regularExpressions').default;
 
 const { Schema } = mongoose;
 const graduateProfileSchema = new Schema({
@@ -19,4 +19,4 @@ const graduateProfileSchema = new Schema({
 
 const GraduateProfile = mongoose.model('GraduateProfile', graduateProfileSchema);
 
-export { graduateProfileSchema, GraduateProfile };
+module.export = { graduateProfileSchema, GraduateProfile };

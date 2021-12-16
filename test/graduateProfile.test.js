@@ -27,13 +27,11 @@ describe('test for graduate profile route', () => {
             })
     });
 
-    it('get request to /graduate profile rote', () => {
+    it('get request to /graduate profile rote', async () => {
         const response = await chai.request(server)
             .get(`${path}/${id}`)
         expect(response).to.have.status(200);
         expect(response.body).to.be.an.equal('Object');
         expect(response.body).to.be.an.instanceOf(GraduateProfile);
     });
-
-
 });

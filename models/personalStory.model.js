@@ -11,4 +11,4 @@ const personalStorySchema = new Schema({
 });
 
 const PersonalStory = mongoose.model("PersonalStory", personalStorySchema);
-export { personalStorySchema, PersonalStory };
+module.exports = { personalStorySchema, PersonalStory };

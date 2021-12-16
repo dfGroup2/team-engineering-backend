@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-import { isoDateRegex } from '../../js/regularExpressions';
+const { isoDateRegex } = require('../../js/regularExpressions').default;
 
 const { Schema } = mongoose;
 const schoolQualificationsSchema = new Schema({
@@ -17,4 +17,4 @@ const schoolQualificationsSchema = new Schema({
 });
 
 const SchoolQualifications = mongoose.model("SchoolQualifications", schoolQualificationsSchema);
-export { schoolQualificationsSchema, SchoolQualifications };
+module.export = { schoolQualificationsSchema, SchoolQualifications };
