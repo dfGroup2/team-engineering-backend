@@ -6,7 +6,8 @@
   "scripts": {
     "test": "SET NODE_ENV=test&& mocha --timeout 10000 --exit",
     "start": "SET NODE_ENV=dev&& nodemon server",
-    "start-p": "SET NODE_ENV=production&& node server"
+    "start-p": "SET NODE_ENV=production&& node server",
+    "start-postman": "SET NODE_ENV=test&& nodemon server"
   },
   "repository": {
     "type": "git",
