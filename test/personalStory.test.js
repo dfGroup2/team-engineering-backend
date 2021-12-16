@@ -2,7 +2,7 @@ const chai = require('chai');
 const chaiHTTP = require('chai-http');
 const server = require('../server');
 const { expect } = require('chai');
-const testPersonalStory = require('./testData/testPersonalStory.json');
+const testPersonalStory = require('./testData/testPersonalStory.js');
 const { PersonalStory } = require('../models/personalStory.model.js');
 
 chai.use(chaiHTTP);
@@ -30,15 +30,18 @@ describe('test for Personal Story route', () => {
             })
     });
 
-    it('get request to /personal story route should have status 200 and a graduate training object sent back', async () => {
+    it('get request to /personal story route should have status 200 and a personal story object sent back', async () => {
         const response = await chai.request(server)
             .get(`${path}/${id1}`)
             .send();
         expect(response).to.have.status(200);
         expect(response.body).to.be.an('Object');
-        delete response.body.__v;
-        expect(response.body).to.be.deep.equal(testPersonalStory.find(graduate => graduate._id === id1));
 
+        expect(response.body).to.have.property("degree");
+        expect(response.body).to.have.property("schoolQualifications");
+        expect(response.body).to.have.property("certificatesAndAwards");
+        expect(response.body).to.have.property("portfolio");
+        expect(response.body).to.have.property("workExperience");
     });
 
     it(`get request to /personalStory/:id route with invalid id should have status 400 and an error object sent back`, async () => {

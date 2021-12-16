@@ -17,7 +17,6 @@ const personalStories = [
     }
 ];
 
-const personalStoriesJSON = JSON.stringify(personalStories);
 
-module.exports = personalStoriesJSON;
+module.exports = personalStories;
 

@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const graduateProfileRouter = require('./routes/graduateProfile');
 const graduateTrainingRouter = require('./routes/graduateTraining');
+const personalStoryRouter = require('./routes/personalStory');
 
 const port = process.env.PORT;
 const host = process.env.HOST;
@@ -15,6 +16,7 @@ app.use(express.json());
 // routes
 app.use(`/graduateProfiles`, graduateProfileRouter);
 app.use(`/graduateTraining`, graduateTrainingRouter);
+app.use(`/personalStory`, personalStoryRouter);
 
 const main = async () => {
     console.log(`Connecting to database at ${process.env.DB_URI}`);

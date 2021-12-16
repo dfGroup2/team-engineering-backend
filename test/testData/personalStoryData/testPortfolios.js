@@ -1,4 +1,5 @@
-const Portfolio = require('../../../models/personalStories/portfolio.model');
+const { Portfolio } = require('../../../models/personalStories/portfolio.model');
+
 const testPortfolio1 = new Portfolio({
     title: "testTitle",
     url: "TestURL",

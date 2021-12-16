@@ -1,4 +1,4 @@
-const SchoolQualifications = require('../../../models/personalStories/schoolQualifications.model');
+const { SchoolQualifications } = require('../../../models/personalStories/schoolQualifications.model');
 
 const testSchoolQualifications1 = new SchoolQualifications({
     school: "DummySchool",

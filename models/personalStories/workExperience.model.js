@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { isoDateRegex } = require('../../js/regularExpressions').default;
+const { isoDateRegex } = require('../../js/regularExpressions');
 
 const { Schema } = mongoose;
 const workExperienceSchema = new Schema({

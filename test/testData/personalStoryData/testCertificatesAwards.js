@@ -1,4 +1,4 @@
-const CertificatesAndAwards = require('../../../models/personalStories/certificatesAndAwards.model');
+const { CertificatesAndAwards } = require('../../../models/personalStories/certificatesAndAwards.model');
 
 const testCertificate1 = new CertificatesAndAwards({
     type: "test award type",

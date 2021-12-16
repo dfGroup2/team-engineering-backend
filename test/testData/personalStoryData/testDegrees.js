@@ -1,4 +1,4 @@
-const Degree = require('../../../models/personalStories/degreeSchema.model');
+const { Degree } = require('../../../models/personalStories/degree.model');
 
 const testDegree1 = new Degree({
     university: "test university",

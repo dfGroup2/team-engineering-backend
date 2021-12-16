@@ -1,4 +1,4 @@
-const WorkExperience = require('../../../models/personalStories/workExperience.model');
+const { WorkExperience } = require('../../../models/personalStories/workExperience.model');
 
 const testWorkExperience1 = new WorkExperience({
     type: "test work type",
