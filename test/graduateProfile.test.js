@@ -34,7 +34,7 @@ describe('test for graduate profile route', () => {
         const response = await chai.request(server)
             .get(`${path}/${id1}`)
         expect(response).to.have.status(200);
-        expect(response.body).to.be.an.equal('Object');
+        expect(response.body).to.be.an('Object');
         expect(response.body).to.be.an.instanceOf(GraduateProfile);
     });
 
