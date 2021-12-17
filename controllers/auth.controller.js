@@ -5,6 +5,7 @@ const config = require('../config/auth.config');
 const db = require('../models/authentication/index');
 
 const User = db.user;
+const Role = db.role;
 
 const signup = (req, res) => {
 	const user = new User({

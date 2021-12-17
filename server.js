@@ -13,7 +13,7 @@ const host = process.env.HOST;
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
 // Populates database with roles if they don't exist
 function initial() {
 	Role.estimatedDocumentCount((err, count) => {
@@ -52,7 +52,6 @@ function initial() {
 }
 
 initial();
-
 
 // routes
 app.use(`/api/auth`, authRouter);
