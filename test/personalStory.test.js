@@ -13,7 +13,7 @@ const id1 = "61bb122f2fc37a8c901f7d3c";
 const id2 = "61bb122f2fc37a8c901f7d3d";
 const id3 = "61bb122f2fc37a8c901f7d3e";
 
-describe('test for Personal Story route', () => {
+xdescribe('test for Personal Story route', () => {
     beforeEach(async () => {
         await PersonalStory.deleteMany()
             .then(() => console.log('empty database'))
@@ -30,7 +30,7 @@ describe('test for Personal Story route', () => {
             })
     });
 
-    it('get request to /personal story route should have status 200 and a personal story object sent back', async () => {
+    xit('get request to /personal story route should have status 200 and a personal story object sent back', async () => {
         const response = await chai.request(server)
             .get(`${path}/${id1}`)
             .send();
@@ -44,7 +44,7 @@ describe('test for Personal Story route', () => {
         expect(response.body).to.have.property("workExperience");
     });
 
-    it(`get request to /personalStory/:id route with invalid id should have status 400 and an error object sent back`, async () => {
+    xit(`get request to /personalStory/:id route with invalid id should have status 400 and an error object sent back`, async () => {
         const response = await chai.request(server)
             .get(`${path}/nonExistentId`)
 

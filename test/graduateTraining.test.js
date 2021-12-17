@@ -30,7 +30,7 @@ describe('test for graduate training route', () => {
             })
     });
 
-    it('get request to /graduate training route should have status 200 and a graduate training object sent back', async () => {
+    xit('get request to /graduate training route should have status 200 and a graduate training object sent back', async () => {
         const response = await chai.request(server)
             .get(`${path}/${id1}`)
             .send();
@@ -41,7 +41,7 @@ describe('test for graduate training route', () => {
 
     });
 
-    it(`get request to /graduateTraining/:id route with invalid id should have status 400 and an error object sent back`, async () => {
+    xit(`get request to /graduateTraining/:id route with invalid id should have status 400 and an error object sent back`, async () => {
         const response = await chai.request(server)
             .get(`${path}/nonExistentId`)
 
