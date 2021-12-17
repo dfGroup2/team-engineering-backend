@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 const Role = require('./models/authentication/role.model');
+const authRouter = require('./routes/auth.routes');
 
 function initial() {
 	Role.estimatedDocumentCount((err, count) => {
@@ -49,6 +50,11 @@ function initial() {
 		}
 	});
 }
+initial();
+
+app.use(`/api/auth`, authRouter);
+app.use(`/api/content`, userRouter);
+
 // routes
 app.use(`/graduateProfiles`, graduateProfileRouter);
 
@@ -67,6 +73,5 @@ const server = app.listen(port, host, () => {
 })
 
 module.exports = server;
-
 
 
