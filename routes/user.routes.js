@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 
 const authJWT = require('../middlewares/authJWT');
 const graduateProfileRouter = require('./graduateProfile');
@@ -25,4 +25,4 @@ router.get(`/graduateProfile`, [authJWT.verifyToken, authJWT.isGraduateUser], gr
 
 
 
-export default userRouter;
+module.exports = router;
