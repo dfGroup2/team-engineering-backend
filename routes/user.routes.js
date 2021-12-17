@@ -1,7 +1,7 @@
 import express from 'express';
 
 const authJWT = require('../middlewares/authJWT');
-
+const graduateProfileRouter = require('./graduateProfile');
 // authJWT = { verifyToken: function, isGraduateUser: function}
 
 const router = express.Router();
@@ -16,8 +16,10 @@ router.use((req, res, next) => {
 });
 
 
-// /api/content/graduateProfile
-router.get(`/graduateProfile`, [authJWT.verifyToken],);
+// GET request to /api/content/graduateProfile
+// that contains a JSON web token
+
+router.get(`/graduateProfile`, [authJWT.verifyToken, authJWT.isGraduateUser], graduateProfileRouter);
 
 
 

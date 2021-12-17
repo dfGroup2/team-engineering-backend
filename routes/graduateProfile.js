@@ -3,6 +3,7 @@ const express = require('express');
 const { GraduateProfile } = require('../models/graduateProfile.model');
 const router = express.Router();
 
+//  /api/content/graduateProfile/:id
 router.route(`/:id`)
 	.get((req, res) => {
 		// console.log(req);
