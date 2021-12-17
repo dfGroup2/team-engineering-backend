@@ -2,10 +2,10 @@ require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
-const graduateProfileRouter = require('./routes/graduateProfile');
-const graduateTrainingRouter = require('./routes/graduateTraining');
-const personalStoryRouter = require('./routes/personalStory');
-// const graduateUserRouter = require('./routes/graduateUser');
+
+const Role = require('./models/authentication/role.model');
+const authRouter = require('./routes/auth.routes');
+const userRouter = require('./routes/user.routes');
 
 const port = process.env.PORT;
 const host = process.env.HOST;
@@ -13,23 +13,64 @@ const host = process.env.HOST;
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// Populates database with roles if they don't exist
+function initial() {
+	Role.estimatedDocumentCount((err, count) => {
+		if (!err && count === 0) {
+			new Role({
+				name: "graduateUser"
+			}).save(err => {
+				if (err) {
+					console.log("error", err);
+				}
+
+				console.log("added 'graduateUser' to roles collection");
+			});
+
+			new Role({
+				name: "industryPartner"
+			}).save(err => {
+				if (err) {
+					console.log("error", err);
+				}
+
+				console.log("added 'industryPartner' to roles collection");
+			});
+
+			new Role({
+				name: "dfAdmin"
+			}).save(err => {
+				if (err) {
+					console.log("error", err);
+				}
+
+				console.log("added 'dfAdmin' to roles collection");
+			});
+		}
+	});
+}
+
+initial();
 
 // routes
-app.use(`/graduateProfiles`, graduateProfileRouter);
-app.use(`/graduateTraining`, graduateTrainingRouter);
-app.use(`/personalStory`, personalStoryRouter);
-// app.use(`/graduateUser`, graduateUserRouter);
+app.use(`/api/auth`, authRouter);
+app.use(`/api/content`, userRouter);
 
+
+// Mongoose connection to MongoDB
 const main = async () => {
-    console.log(`Connecting to database at ${process.env.DB_URI}`);
-    await mongoose.connect(process.env.DB_URI);
+	console.log(`Connecting to database at ${process.env.DB_URI}`);
+	await mongoose.connect(process.env.DB_URI);
 };
 main().catch(error => console.log(error));
 
+
+// Node/Express Server
 const server = app.listen(port, host, () => {
-    const serverHOST = server.address().address;
-    const serverPORT = server.address().port;
-    console.log(`NodeServer listening at http://${serverHOST}:${serverPORT}/`);
+	const serverHOST = server.address().address;
+	const serverPORT = server.address().port;
+	console.log(`NodeServer listening at http://${serverHOST}:${serverPORT}/`);
 
 })
 
