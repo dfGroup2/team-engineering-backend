@@ -1,5 +1,6 @@
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
 const cors = require('cors');
+const Role = require('./models/authentication/role.model');
 
 const express = require('express');
 const mongoose = require('mongoose');
