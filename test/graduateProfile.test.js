@@ -66,21 +66,12 @@ describe('test for graduate profile route', () => {
                 console.log(error);
             }
         });
-        // await User.insertOne(testUserSignup[0])
-        //     .then(() => console.log('userRegistered'))
-        //     .catch(error => {
-        //         console.log(error)
-        //         throw new Error();
-        //     }
 
         const response = await chai.request(server)
             .post(`/api/auth/signin`)
             .send({ username, password });
 
-        // id = response.body.id;
         token = response.body.accessToken;
-        // console.log(id);
-        console.log(token);
     });
 
     afterEach(() => {
@@ -100,9 +91,10 @@ describe('test for graduate profile route', () => {
 
     });
 
-    xit(`get request to /graduateProfile/:id route with invalid id should have status 400 and an error object sent back`, async () => {
+    it(`get request to /graduateProfile/:id route with invalid id should have status 400 and an error object sent back`, async () => {
         const response = await chai.request(server)
             .get(`${path}/nonExistentId`)
+            .set('x-access-token', token)
 
         expect(response).to.have.status(400);
         expect(response.body).to.be.an('object');
