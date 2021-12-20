@@ -1,5 +1,5 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const config = require('../config/auth.config');
 const db = require('../models/authentication/index');
@@ -43,7 +43,7 @@ const signup = (req, res) => {
 				}
 			);
 		} else {
-			Role.findOne({ name: "user" }, (err, role) => {
+			Role.findOne({ name: "graduateUser" }, (err, role) => {
 				if (err) {
 					res.status(500).send({ message: err });
 					return;
@@ -56,7 +56,7 @@ const signup = (req, res) => {
 						return;
 					}
 
-					res.send({ message: "User was registered successfully!" });
+					res.send({ message: "Graduate User was registered successfully!" });
 				});
 			});
 		}

@@ -1,12 +1,14 @@
 const chai = require('chai');
 const chaiHTTP = require('chai-http');
+const bcrypt = require('bcryptjs');
 const server = require('../server');
 const { expect } = require('chai');
 const testGraduateProfile = require('./testData/testGraduateProfile.json');
 const { GraduateProfile } = require('../models/graduateProfile.model.js');
-const User = require('../models/authentication/user.model')
+const User = require('../models/authentication/user.model');
+const Role = require('../models/authentication/role.model');
 const testUserSignup = require('./testData/authenticationData/testUserSignup.json');
-
+const testRoles = require('./testData/authenticationData/testRoles.json');
 
 chai.use(chaiHTTP);
 
@@ -33,7 +35,32 @@ describe('test for graduate profile route', () => {
                 console.log(error)
                 throw new Error();
             })
-        const user = new User(testUserSignup[0]);
+
+        await Role.deleteMany()
+            .then(() => console.log('emptied roles collection'))
+            .catch(error => {
+                console.log(error)
+                throw new Error();
+            })
+
+        await Role.insertMany(testRoles)
+            .then(() => console.log('added roles to database'))
+            .catch(error => {
+                console.log(error)
+                throw new Error();
+            })
+
+        await User.deleteMany()
+            .then(() => console.log('emptied User collection'))
+            .catch(error => {
+                console.log(error)
+                throw new Error();
+            })
+
+
+        const passwordHash = bcrypt.hashSync(testUserSignup[0].password, 8);
+        const { username, password, email } = testUserSignup[0];
+        const user = new User({ username, email, password: passwordHash, roles: ["61c05c86ec0f9a498a7fb65a"] });
         await user.save(error => {
             if (error) {
                 console.log(error);
@@ -44,16 +71,16 @@ describe('test for graduate profile route', () => {
         //     .catch(error => {
         //         console.log(error)
         //         throw new Error();
-        //     })
-        const { username, password } = testUserSignup[0]
+        //     }
+
         const response = await chai.request(server)
             .post(`/api/auth/signin`)
             .send({ username, password });
-        id = response.id;
-        token = response.accessToken;
-        console.log(id);
-        console.log(token);
 
+        // id = response.body.id;
+        token = response.body.accessToken;
+        // console.log(id);
+        console.log(token);
     });
 
     afterEach(() => {
@@ -63,10 +90,9 @@ describe('test for graduate profile route', () => {
 
     it('get request to /graduate profile route should have status 200 and a graduate profile object sent back', async () => {
         const response = await chai.request(server)
-            .get(`${path}/${id}`)
-            .send({ headers: { 'x-access-token': token } });
-        console.log(id);
-        console.log(token);
+            .get(`${path}/${id1}`)
+            .set('x-access-token', token)
+            .send();
         expect(response).to.have.status(200);
         expect(response.body).to.be.an('Object');
         delete response.body.__v;
