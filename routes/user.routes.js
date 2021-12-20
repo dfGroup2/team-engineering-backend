@@ -3,6 +3,7 @@ const express = require('express');
 const authJWT = require('../middlewares/authJWT');
 const graduateProfileHandler = require('./graduateProfile');
 const personalStoryHandler = require('./personalStory');
+const graduateTrainingHandler = require('./graduateTraining');
 // authJWT = { verifyToken: function, isGraduateUser: function}
 
 const router = express.Router();
@@ -22,6 +23,7 @@ router.use((req, res, next) => {
 
 router.get(`/graduateProfiles/:id`, [authJWT.verifyToken, authJWT.isGraduateUser], graduateProfileHandler);
 router.get(`/personalStory/:id`, [authJWT.verifyToken, authJWT.isGraduateUser], personalStoryHandler);
+router.get(`/graduateTraining/:id`, [authJWT.verifyToken, authJWT.isGraduateUser], graduateTrainingHandler)
 
 
 

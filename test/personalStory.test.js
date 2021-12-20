@@ -87,9 +87,10 @@ describe('test for Personal Story route', () => {
         expect(response.body).to.have.property("workExperience");
     });
 
-    xit(`get request to /personalStory/:id route with invalid id should have status 400 and an error object sent back`, async () => {
+    it(`get request to /personalStory/:id route with invalid id should have status 400 and an error object sent back`, async () => {
         const response = await chai.request(server)
             .get(`${path}/nonExistentId`)
+            .set('x-access-token', token)
 
         expect(response).to.have.status(400);
         expect(response.body).to.be.an('object');
