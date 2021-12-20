@@ -5,6 +5,7 @@ const server = require('../server');
 const { expect } = require('chai');
 const testGraduateProfile = require('./testData/testGraduateProfile.json');
 const { GraduateProfile } = require('../models/graduateProfile.model.js');
+
 const User = require('../models/authentication/user.model');
 const Role = require('../models/authentication/role.model');
 const testUserSignup = require('./testData/authenticationData/testUserSignup.json');
@@ -60,7 +61,7 @@ describe('test for graduate profile route', () => {
 
         const passwordHash = bcrypt.hashSync(testUserSignup[0].password, 8);
         const { username, password, email } = testUserSignup[0];
-        const user = new User({ username, email, password: passwordHash, roles: ["61c05c86ec0f9a498a7fb65a"] });
+        const user = new User({ username, email, password: passwordHash, roles: [testRoles[0]._id] });
         await user.save(error => {
             if (error) {
                 console.log(error);
