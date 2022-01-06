@@ -9,7 +9,11 @@ const userSchema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Role"
 		}
-	]
+	],
+	graduateUserData: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "GraduateUser"
+	}
 });
 
 const User = mongoose.model("User", userSchema);

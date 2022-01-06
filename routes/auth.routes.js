@@ -2,8 +2,6 @@ const express = require('express');
 const { signin, signup } = require('../controllers/auth.controller');
 const router = express.Router();
 
-
-
 router.use((req, res, next) => {
     res.header(
         "Access-Control-Allow-Headers",
