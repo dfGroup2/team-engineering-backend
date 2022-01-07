@@ -3,17 +3,17 @@ const { isoDateRegex } = require('../../js/regularExpressions');
 
 const { Schema } = mongoose;
 const schoolQualificationsSchema = new Schema({
-    school: { type: String },
-    examType: { type: String },
-    subject: { type: String },
-    grade: { type: String },
+    school: { type: String, default: "defaultSchool" },
+    examType: { type: String, default: "defaultExamType" },
+    subject: { type: String, default: "defaultSubject" },
+    grade: { type: String, default: "defaultGrade" },
     year: {
-        from: { type: Date, required: true, match: [isoDateRegex, "Date is invalid"] },
-        to: { type: Date, required: true, match: [isoDateRegex, "Date is invalid"] }
+        from: { type: Date, required: true, match: [isoDateRegex, "Date is invalid"], default: "2021-12-01T13:20:36.186Z" },
+        to: { type: Date, required: true, match: [isoDateRegex, "Date is invalid"], default: "2021-12-02T13:20:36.186Z" }
     },
-    weight: { type: String },
-    priority: { type: Number },
-    description: { type: String },
+    weight: { type: String, default: "defaultWeight" },
+    priority: { type: Number, default: 0 },
+    description: { type: String, default: "defaultDescription" },
 });
 
 const SchoolQualifications = mongoose.model("SchoolQualifications", schoolQualificationsSchema);

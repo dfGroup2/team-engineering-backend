@@ -7,11 +7,11 @@ const { workExperienceSchema } = require('./personalStories/workExperience.model
 
 const { Schema } = mongoose;
 const personalStorySchema = new Schema({
-    degree: { type: [degreeSchema] },
-    schoolQualifications: { type: [schoolQualificationsSchema] },
-    certificatesAndAwards: { type: [certificatesAndAwardsSchema] },
-    portfolio: { type: [portfolioSchema] },
-    workExperience: { type: [workExperienceSchema] }
+    degree: { type: [degreeSchema], default: () => ([{}]) },
+    schoolQualifications: { type: [schoolQualificationsSchema], default: () => ([{}]) },
+    certificatesAndAwards: { type: [certificatesAndAwardsSchema], default: () => ([{}]) },
+    portfolio: { type: [portfolioSchema], default: () => ([{}]) },
+    workExperience: { type: [workExperienceSchema], default: () => ([{}]) }
 });
 
 const PersonalStory = mongoose.model("PersonalStory", personalStorySchema);

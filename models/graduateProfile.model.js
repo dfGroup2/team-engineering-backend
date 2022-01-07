@@ -3,18 +3,18 @@ const { emailRegex } = require('../js/regularExpressions');
 
 const { Schema } = mongoose;
 const graduateProfileSchema = new Schema({
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    personalEmail: { type: String, required: true, match: [emailRegex, 'Invalid email'] },
-    DFEmail: { type: String, required: true, match: [emailRegex, 'Invalid email'] },
+    firstName: { type: String, required: true, default: "firstName" },
+    lastName: { type: String, required: true, default: "lastName" },
+    personalEmail: { type: String, required: true, match: [emailRegex, 'Invalid email'], default: "test@email.com" },
+    DFEmail: { type: String, required: true, match: [emailRegex, 'Invalid email'], default: "test@email.com" },
     github: { type: String },
     linkedIn: { type: String },
     phoneNumber: { type: Number },
     profilePicture: { type: String },
     personalStory: { type: [String] },
-    gender: { type: String, required: true },
-    nationality: { type: String, required: true },
-    personality: { type: String, required: true },
+    gender: { type: String, required: true, default: "defaultGender" },
+    nationality: { type: String, required: true, default: "defaultNationality" },
+    personality: { type: String, required: true, default: "defaultPersonality" },
 });
 
 const GraduateProfile = mongoose.model('GraduateProfile', graduateProfileSchema);
