@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const graduateProfileSchema = require('./graduateProfile.model');
-const graduateTrainingSchema = require('./graduateTraining.model');
-const personalInfoSchema = require('./personalInfo.model');
-const personalStorySchema = require('./personalStory.model');
+const { graduateProfileSchema } = require('./graduateProfile.model');
+const { graduateTrainingSchema } = require('./graduateTraining.model');
+const { personalInfoSchema } = require('./personalInfo.model');
+const { personalStorySchema } = require('./personalStory.model');
 
 const { Schema } = mongoose;
 // Change the key types from Schemas to ObjectId

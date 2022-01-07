@@ -8,7 +8,7 @@ const { GraduateProfile } = require('../models/graduateProfile.model.js');
 
 const User = require('../models/authentication/user.model');
 const Role = require('../models/authentication/role.model');
-const testUserSignup = require('./testData/authent  icationData/testUserSignup.json');
+const testUserSignup = require('./testData/authenticationData/testUserSignup.json');
 const testRoles = require('./testData/authenticationData/testRoles.json');
 
 chai.use(chaiHTTP);

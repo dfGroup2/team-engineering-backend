@@ -18,24 +18,13 @@ const testPersonalInfo = require('.././test/testData/testPersonalInfo.json');
 const testPersonalStories = require('.././test/testData/testPersonalStory');
 
 const signup = (req, res) => {
-
-	const defaultGraduateProfile = new GraduateProfile(JSON.parse(testGraduateProfiles)[0]);
-	const defaultGraduateTraining = new GraduateTraining(JSON.parse(testGraduateTrainingData)[0]);
-	const defaultPersonalInfo = new PersonalInfo(JSON.parse(testPersonalInfo)[0]);
-	const defaultPersonalStory = new PersonalStory(testPersonalStories[0]);
-
-	const newGraduateUser = new GraduateUser({
-		"graduateProfile": defaultGraduateProfile,
-		"graduateTraining": defaultGraduateTraining,
-		"personalInfo": defaultPersonalInfo,
-		"personalStory": defaultPersonalStory
-	})
+	const newGraduateUser = new GraduateUser();
 
 	const user = new User({
 		username: req.body.username,
 		email: req.body.email,
 		password: bcrypt.hashSync(req.body.password, 8),
-		graduateUserData: newGraduateUser
+		graduateUserData: newGraduateUser._id
 	});
 
 	user.save((err, user) => {
