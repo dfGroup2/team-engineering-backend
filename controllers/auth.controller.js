@@ -7,15 +7,6 @@ const db = require('../models/authentication/index');
 const User = db.user;
 const Role = db.role;
 const GraduateUser = require('.././models/graduateUser.model');
-const GraduateProfile = require('.././models/graduateProfile.model');
-const GraduateTraining = require('.././models/graduateTraining.model');
-const PersonalInfo = require('.././models/personalInfo.model');
-const PersonalStory = require('.././models/personalStory.model');
-
-const testGraduateProfiles = require('.././test/testData/testGraduateProfile.json');
-const testGraduateTrainingData = require('.././test/testData/testGraduateTraining.json');
-const testPersonalInfo = require('.././test/testData/testPersonalInfo.json');
-const testPersonalStories = require('.././test/testData/testPersonalStory');
 
 const signup = (req, res) => {
 	const newGraduateUser = new GraduateUser();
