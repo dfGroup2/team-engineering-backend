@@ -7,7 +7,7 @@ const certificatesAndAwardsSchema = new Schema({
     issuer: { type: String },
     award: { type: String },
     grade: { type: String },
-    year: { type: Date, required: true, match: [isoDateRegex, "Date is invalid"] },
+    year: { type: Date, required: true, match: [isoDateRegex, "Date is invalid"], default: "2021-12-01T13:20:36.186Z" },
     weight: { type: String },
     priority: { type: Number },
     description: { type: String },

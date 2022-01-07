@@ -10,6 +10,12 @@ const GraduateUser = require('.././models/graduateUser.model');
 
 const signup = (req, res) => {
 	const newGraduateUser = new GraduateUser();
+	newGraduateUser.save((err, graduateUser) => {
+		if (err) {
+			res.status(500).send({ message: err });
+			return;
+		}
+	})
 
 	const user = new User({
 		username: req.body.username,
@@ -109,7 +115,8 @@ const signin = (req, res) => {
 				username: user.username,
 				email: user.email,
 				roles: authorities,
-				accessToken: token
+				accessToken: token,
+				graduateUserData: user.graduateUserData
 			});
 		});
 };

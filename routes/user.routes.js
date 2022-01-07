@@ -29,7 +29,7 @@ router.get(`/graduateTraining/:id`, [authJWT.verifyToken, authJWT.isGraduateUser
 
 // add a router for requests to GraduateUser route
 // id is the id of the logged in user
-router.get(`/graduateUser/:id`, [authJWT.verifyToken, authJWT.isGraduateUser], graduateUserHandler);
+router.get(`/graduateUsers/:id`, [authJWT.verifyToken, authJWT.isGraduateUser], graduateUserHandler);
 
 
 

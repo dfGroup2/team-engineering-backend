@@ -20,7 +20,7 @@ const graduateTrainingSchema = new Schema({
 			"test-driven development": { type: String, required: true, default: "pass" },
 		},
 		"software development 1": {
-			"3rd party integration": { type: String, required: true, defualt: "pass" },
+			"3rd party integration": { type: String, required: true, default: "pass" },
 		},
 		"software development 2": {
 			"business services": { type: String, required: true, default: "pass" },
