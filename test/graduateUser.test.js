@@ -3,9 +3,8 @@ const chaiHTTP = require('chai-http');
 const bcrypt = require('bcryptjs');
 const server = require('../server');
 const { expect } = require('chai');
-const testGraduateProfile = require('./testData/testGraduateProfile.json');
-const { GraduateProfile } = require('../models/graduateProfile.model.js');
-
+const GraduateUser = require('../models/graduateUser.model.js');
+const testGraduateUsers = require('./testData/testGraduateUsers.json');
 const User = require('../models/authentication/user.model');
 const Role = require('../models/authentication/role.model');
 const testUserSignup = require('./testData/authenticationData/testUserSignup.json');
@@ -13,24 +12,22 @@ const testRoles = require('./testData/authenticationData/testRoles.json');
 
 chai.use(chaiHTTP);
 
-const path = '/api/content/graduateProfiles';
+const path = '/api/content/graduateUsers';
 
-const id1 = "61bb122f2fc37a8c901f7d3c";
-const id2 = "61bb122f2fc37a8c901f7d3d";
-const id3 = "61bb122f2fc37a8c901f7d3e";
+const id1 = testGraduateUsers[0]._id;
 
-describe('test for graduate profile route', () => {
+describe('test for graduate user route', () => {
 	let token;
 	let id;
 	beforeEach(async () => {
-		await GraduateProfile.deleteMany()
+		await GraduateUser.deleteMany()
 			.then(() => console.log('empty database'))
 			.catch(error => {
 				console.log(error)
 				throw new Error();
 			})
 
-		await GraduateProfile.insertMany(testGraduateProfile)
+		await GraduateUser.insertMany(testGraduateUsers)
 			.then(() => console.log('entries added to database'))
 			.catch(error => {
 				console.log(error)
@@ -61,7 +58,7 @@ describe('test for graduate profile route', () => {
 
 		const passwordHash = bcrypt.hashSync(testUserSignup[0].password, 8);
 		const { username, password, email } = testUserSignup[0];
-		const user = new User({ username, email, password: passwordHash, roles: [testRoles[0]._id] });
+		const user = new User({ username, email, password: passwordHash, roles: [testRoles[0]._id], graduateUserData: id1 });
 		await user.save(error => {
 			if (error) {
 				console.log(error);
@@ -80,7 +77,7 @@ describe('test for graduate profile route', () => {
 		token = null;
 	});
 
-	it('get request to /graduate profile route should have status 200 and a graduate profile object sent back', async () => {
+	it('get request to /graduate user route should have status 200 and a graduate user object sent back', async () => {
 		const response = await chai.request(server)
 			.get(`${path}/${id1}`)
 			.set('x-access-token', token)
@@ -88,7 +85,7 @@ describe('test for graduate profile route', () => {
 		expect(response).to.have.status(200);
 		expect(response.body).to.be.an('Object');
 		delete response.body.__v;
-		expect(response.body).to.be.deep.equal(testGraduateProfile.find(graduate => graduate._id === id1));
+		expect(response.body).to.be.deep.equal(testGraduateUsers.find(graduate => graduate._id === id1));
 
 	});
 
