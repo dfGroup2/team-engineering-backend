@@ -96,7 +96,7 @@ describe('test for graduate user route', () => {
 
 	});
 
-	xit(`get request to /graduateProfile/:id route with invalid id should have status 400 and an error object sent back`, async () => {
+	it(`get request to /graduateProfile/:id route with invalid id should have status 400 and an error object sent back`, async () => {
 		const response = await chai.request(server)
 			.get(`${path}/nonExistentId`)
 			.set('x-access-token', token)
