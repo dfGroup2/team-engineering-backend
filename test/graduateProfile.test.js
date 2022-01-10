@@ -19,7 +19,7 @@ const id1 = "61bb122f2fc37a8c901f7d3c";
 const id2 = "61bb122f2fc37a8c901f7d3d";
 const id3 = "61bb122f2fc37a8c901f7d3e";
 
-describe('test for graduate profile route', () => {
+xdescribe('test for graduate profile route', () => {
     let token;
     let id;
     beforeEach(async () => {

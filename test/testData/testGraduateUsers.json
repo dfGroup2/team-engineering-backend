@@ -2,6 +2,7 @@
     {
         "_id": "61d8245d1c7acea5b464d1d9",
         "graduateProfile": {
+            "_id": "61dc115d1b0a7b584961ace6",
             "firstName": "firstName",
             "lastName": "lastName",
             "personalEmail": "test@email.com",
@@ -12,6 +13,7 @@
             "personality": "defaultPersonality"
         },
         "graduateTraining": {
+            "_id": "61dc115d1b0a7b584961ace7",
             "learningPath": "software engineering",
             "cohort": "mse-3",
             "trainer": "ed",
@@ -44,6 +46,7 @@
             }
         },
         "personalInfo": {
+            "_id": "61dc115d1b0a7b584961ace9",
             "badges": [
                 "defaultBadge"
             ],
@@ -53,8 +56,10 @@
             "videoLink": "defaultVideoLink"
         },
         "personalStory": {
+            "_id": "61dc115d1b0a7b584961ace8",
             "degree": [
                 {
+                    "_id": "61dc115d1b0a7b584961acea",
                     "university": "defaultUni",
                     "subject": "defaultSubject",
                     "level": "defaultLevel",
@@ -85,6 +90,7 @@
             ],
             "certificatesAndAwards": [
                 {
+                    "_id": "61dc115d1b0a7b584961acec",
                     "year": "2021-12-01T13:20:36.186Z"
                 }
             ],

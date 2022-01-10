@@ -14,4 +14,4 @@ const graduateUserSchema = new Schema({
 });
 
 const GraduateUser = mongoose.model("graduateUser", graduateUserSchema);
-module.exports = GraduateUser;
+module.exports = { GraduateUser };
