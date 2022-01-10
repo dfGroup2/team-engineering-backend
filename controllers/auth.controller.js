@@ -6,7 +6,7 @@ const db = require('../models/authentication/index');
 
 const User = db.user;
 const Role = db.role;
-const GraduateUser = require('.././models/graduateUser.model');
+const { GraduateUser } = require('.././models/graduateUser.model');
 
 const signup = (req, res) => {
 	const newGraduateUser = new GraduateUser();
