@@ -59,18 +59,18 @@ app.use(`/api/content`, userRouter);
 
 
 // Mongoose connection to local MongoDB
-// const main = async () => {
-// 	console.log(`Connecting to database at ${process.env.DB_LOCAL_URI}`);
-// 	await mongoose.connect(`${process.env.DB_LOCAL_URI}`);
-// };
-// main().catch(error => console.log(error));
-
-// Mongoose connection to MongoDB Atlas cloud database
 const main = async () => {
-	console.log(`Connecting to database at ${process.env.DB_URI}`);
-	await mongoose.connect(`${process.env.DBPROTOCOL}://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}/${process.env.DB}?${process.env.DBOPTIONS}`);
+	console.log(`Connecting to database at ${process.env.DB_LOCAL_URI}`);
+	await mongoose.connect(`${process.env.DB_LOCAL_URI}`);
 };
 main().catch(error => console.log(error));
+
+// Mongoose connection to MongoDB Atlas cloud database
+// const main = async () => {
+// 	console.log(`Connecting to database at ${process.env.DB_URI}`);
+// 	await mongoose.connect(`${process.env.DBPROTOCOL}://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}/${process.env.DB}?${process.env.DBOPTIONS}`);
+// };
+// main().catch(error => console.log(error));
 
 
 // Node/Express Server
