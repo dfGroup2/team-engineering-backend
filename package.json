@@ -9,7 +9,7 @@
     "start-p": "SET NODE_ENV=production&& node server",
     "start-postman": "SET NODE_ENV=test&& nodemon server",
     "test-linux": "NODE_ENV=test&& mocha --timeout 10000 --exit",
-    "start-linux": "NODE_ENV=dev&& nodemon server",
+    "start-linux": "NODE_ENV=dev&& nodemon server"
   },
   "repository": {
     "type": "git",
