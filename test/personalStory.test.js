@@ -1,10 +1,10 @@
 const chai = require('chai');
 const chaiHTTP = require('chai-http');
-const bcrypt = require('bcryptjs');
 const server = require('../server');
+const bcrypt = require('bcryptjs');
 const { expect } = require('chai');
-const testGraduateProfile = require('./testData/testGraduateProfile.json');
-const { GraduateProfile } = require('../models/graduateProfile.model.js');
+const testPersonalStory = require('./testData/testPersonalStory.js');
+const { PersonalStory } = require('../models/personalStory.model.js');
 
 const User = require('../models/authentication/user.model');
 const Role = require('../models/authentication/role.model');
@@ -13,24 +13,22 @@ const testRoles = require('./testData/authenticationData/testRoles.json');
 
 chai.use(chaiHTTP);
 
-const path = '/api/content/graduateProfiles';
+const path = '/api/content/personalStory';
 
 const id1 = "61bb122f2fc37a8c901f7d3c";
 const id2 = "61bb122f2fc37a8c901f7d3d";
 const id3 = "61bb122f2fc37a8c901f7d3e";
 
-xdescribe('test for graduate profile route', () => {
-    let token;
-    let id;
+xdescribe('test for Personal Story route', () => {
     beforeEach(async () => {
-        await GraduateProfile.deleteMany()
+        await PersonalStory.deleteMany()
             .then(() => console.log('empty database'))
             .catch(error => {
                 console.log(error)
                 throw new Error();
             })
 
-        await GraduateProfile.insertMany(testGraduateProfile)
+        await PersonalStory.insertMany(testPersonalStory)
             .then(() => console.log('entries added to database'))
             .catch(error => {
                 console.log(error)
@@ -58,7 +56,6 @@ xdescribe('test for graduate profile route', () => {
                 throw new Error();
             })
 
-
         const passwordHash = bcrypt.hashSync(testUserSignup[0].password, 8);
         const { username, password, email } = testUserSignup[0];
         const user = new User({ username, email, password: passwordHash, roles: [testRoles[0]._id] });
@@ -75,24 +72,22 @@ xdescribe('test for graduate profile route', () => {
         token = response.body.accessToken;
     });
 
-    afterEach(() => {
-        id = null;
-        token = null;
-    });
-
-    it('get request to /graduate profile route should have status 200 and a graduate profile object sent back', async () => {
+    it('get request to /personal story route should have status 200 and a personal story object sent back', async () => {
         const response = await chai.request(server)
             .get(`${path}/${id1}`)
             .set('x-access-token', token)
             .send();
         expect(response).to.have.status(200);
         expect(response.body).to.be.an('Object');
-        delete response.body.__v;
-        expect(response.body).to.be.deep.equal(testGraduateProfile.find(graduate => graduate._id === id1));
 
+        expect(response.body).to.have.property("degree");
+        expect(response.body).to.have.property("schoolQualifications");
+        expect(response.body).to.have.property("certificatesAndAwards");
+        expect(response.body).to.have.property("portfolio");
+        expect(response.body).to.have.property("workExperience");
     });
 
-    it(`get request to /graduateProfile/:id route with invalid id should have status 400 and an error object sent back`, async () => {
+    it(`get request to /personalStory/:id route with invalid id should have status 400 and an error object sent back`, async () => {
         const response = await chai.request(server)
             .get(`${path}/nonExistentId`)
             .set('x-access-token', token)

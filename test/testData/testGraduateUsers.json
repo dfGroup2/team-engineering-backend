@@ -1,0 +1,123 @@
+[
+    {
+        "_id": "61d8245d1c7acea5b464d1d9",
+        "graduateProfile": {
+            "_id": "61dc115d1b0a7b584961ace6",
+            "firstName": "firstName",
+            "lastName": "lastName",
+            "personalEmail": "test@email.com",
+            "DFEmail": "test@email.com",
+            "personalStory": [],
+            "gender": "defaultGender",
+            "nationality": "defaultNationality",
+            "personality": "defaultPersonality"
+        },
+        "graduateTraining": {
+            "_id": "61dc115d1b0a7b584961ace7",
+            "learningPath": "software engineering",
+            "cohort": "mse-3",
+            "trainer": "ed",
+            "finishedDate": "2021-12-01T13:20:36.186Z",
+            "courseModules": {
+                "fundamentals": {
+                    "javascript programming": "pass"
+                },
+                "software design": {
+                    "bank challenge": "pass",
+                    "news summary challenge": "pass",
+                    "rock paper scissors challenge": "pass",
+                    "chitter challenge": "pass",
+                    "test-driven development": "pass"
+                },
+                "software development 1": {
+                    "3rd party integration": "pass"
+                },
+                "software development 2": {
+                    "business services": "pass",
+                    "full-stack application": "pass"
+                },
+                "team engineering": {
+                    "java challenge": "pass",
+                    "agile team collaboration": "pass"
+                },
+                "professional skills": {
+                    "interview challenges": "pass"
+                }
+            }
+        },
+        "personalInfo": {
+            "_id": "61dc115d1b0a7b584961ace9",
+            "badges": [
+                "defaultBadge"
+            ],
+            "scores": [
+                "defaultScore"
+            ],
+            "videoLink": "defaultVideoLink"
+        },
+        "personalStory": {
+            "_id": "61dc115d1b0a7b584961ace8",
+            "degree": [
+                {
+                    "_id": "61dc115d1b0a7b584961acea",
+                    "university": "defaultUni",
+                    "subject": "defaultSubject",
+                    "level": "defaultLevel",
+                    "grade": "defaultGrade",
+                    "date": {
+                        "from": "2021-12-01T13:20:36.186Z",
+                        "to": "2021-12-02T13:20:36.186Z"
+                    },
+                    "weight": "defaultWeight",
+                    "priority": 0,
+                    "description": "defaultDescription"
+                }
+            ],
+            "schoolQualifications": [
+                {
+                    "school": "defaultSchool",
+                    "examType": "defaultExamType",
+                    "subject": "defaultSubject",
+                    "grade": "defaultGrade",
+                    "year": {
+                        "from": "2021-12-01T13:20:36.186Z",
+                        "to": "2021-12-02T13:20:36.186Z"
+                    },
+                    "weight": "defaultWeight",
+                    "priority": 0,
+                    "description": "defaultDescription"
+                }
+            ],
+            "certificatesAndAwards": [
+                {
+                    "_id": "61dc115d1b0a7b584961acec",
+                    "year": "2021-12-01T13:20:36.186Z"
+                }
+            ],
+            "portfolio": [
+                {
+                    "title": "defaultTitle",
+                    "url": "defaultUrl",
+                    "year": "2021-12-01T13:20:36.186Z",
+                    "weight": "defaultWeight",
+                    "priority": 0,
+                    "description": "defaultDescription"
+                }
+            ],
+            "workExperience": [
+                {
+                    "type": "defaultType",
+                    "employerOrOtherOrganization": "defaultEmployer",
+                    "position": "defaultPosition",
+                    "date": {
+                        "from": "2021-12-01T13:20:36.186Z",
+                        "to": "2021-12-02T13:20:36.186Z"
+                    },
+                    "weight": "defaultWeight",
+                    "priority": 0,
+                    "description": "defaultDescription"
+                }
+            ]
+        }
+    }
+]

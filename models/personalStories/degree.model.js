@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const { isoDateRegex } = require('../../js/regularExpressions');
 
 const { Schema } = mongoose;
-const schoolQualificationsSchema = new Schema({
-    school: { type: String, default: "defaultSchool" },
-    examType: { type: String, default: "defaultExamType" },
+const degreeSchema = new Schema({
+    university: { type: String, default: "defaultUni" },
     subject: { type: String, default: "defaultSubject" },
+    level: { type: String, default: "defaultLevel" },
     grade: { type: String, default: "defaultGrade" },
-    year: {
+    date: {
         from: { type: Date, required: true, match: [isoDateRegex, "Date is invalid"], default: "2021-12-01T13:20:36.186Z" },
         to: { type: Date, required: true, match: [isoDateRegex, "Date is invalid"], default: "2021-12-02T13:20:36.186Z" }
     },
@@ -16,5 +16,5 @@ const schoolQualificationsSchema = new Schema({
     description: { type: String, default: "defaultDescription" },
 });
 
-const SchoolQualifications = mongoose.model("SchoolQualifications", schoolQualificationsSchema);
-module.exports = { schoolQualificationsSchema, SchoolQualifications };
+const Degree = mongoose.model("Degree", degreeSchema);
+module.exports = { degreeSchema, Degree };
