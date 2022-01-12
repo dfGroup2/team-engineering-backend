@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const personalInfoSchema = new Schema({
     badges: { type: [String], default: ["defaultBadge", "defaultBadge2", "defaultBadge3"] },
-    scores: { type: [String], default: ["defaultScore", "DefaultScore2", "defaultScore3"] },
+    scores: { type: [String], default: ["defaultScore", "defaultScore2", "defaultScore3"] },
     videoLink: { type: String, default: "defaultVideoLink" }
 });
 
