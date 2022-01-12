@@ -11,7 +11,6 @@ const graduateProfileSchema = new Schema({
     linkedIn: { type: String },
     phoneNumber: { type: Number },
     profilePicture: { type: String },
-    personalStory: { type: [String] },
     gender: { type: String, required: true, default: "defaultGender" },
     nationality: { type: String, required: true, default: "defaultNationality" },
     personality: { type: String, required: true, default: "defaultPersonality" },
