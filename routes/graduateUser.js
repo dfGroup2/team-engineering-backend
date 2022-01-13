@@ -12,6 +12,4 @@ const graduateUserHandler = (req, res) => {
 
 };
 
-
-
 module.exports = graduateUserHandler;
