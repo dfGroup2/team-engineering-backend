@@ -85,15 +85,11 @@ describe('test for graduate user route', () => {
 		expect(response).to.have.status(200);
 		expect(response.body).to.be.an('Object');
 		delete response.body.__v;
-		// console.log(response.body);
-		// console.log(testGraduateUsers[0]);
-		// expect(response.body).to.be.deep.equal(testGraduateUsers.find(graduate => graduate._id === id1));
 
 		expect(response.body).to.have.property("graduateProfile");
 		expect(response.body).to.have.property("graduateTraining");
 		expect(response.body).to.have.property("personalInfo");
 		expect(response.body).to.have.property("personalStory");
-
 	});
 
 	it(`get request to /graduateProfile/:id route with invalid id should have status 400 and an error object sent back`, async () => {

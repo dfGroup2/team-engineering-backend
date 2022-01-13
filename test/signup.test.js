@@ -4,7 +4,6 @@ const server = require('../server');
 const { expect } = require('chai');
 const testUsers = require('./testData/authenticationData/testUserSignup.json');
 
-
 chai.use(chaiHTTP);
 
 const path = '/api/auth/signup';

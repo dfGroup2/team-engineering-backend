@@ -21,7 +21,6 @@ const verifyToken = (req, res, next) => {
 	});
 };
 
-
 const isGraduateUser = (req, res, next) => {
 	User.findById(req.userId).exec((err, user) => {
 		if (err) {

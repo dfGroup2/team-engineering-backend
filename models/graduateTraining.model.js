@@ -8,7 +8,6 @@ const graduateTrainingSchema = new Schema({
 	trainer: { type: String, required: true, default: "ed" },
 	finishedDate: { type: Date, required: true, match: [isoDateRegex, "invalid date"], default: "2021-12-01T13:20:36.186Z" },
 	courseModules: {
-		// Might have to change these later
 		fundamentals: {
 			"javascript programming": { type: String, required: true, default: "pass" }
 		},
