@@ -19,7 +19,7 @@ const id1 = "61bb122f2fc37a8c901f7d3c";
 const id2 = "61bb122f2fc37a8c901f7d3d";
 const id3 = "61bb122f2fc37a8c901f7d3e";
 
-xdescribe('test for graduate training route', () => {
+describe('test for graduate training route', () => {
     beforeEach(async () => {
         await GraduateTraining.deleteMany()
             .then(() => console.log('empty database'))

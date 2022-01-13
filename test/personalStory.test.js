@@ -19,7 +19,7 @@ const id1 = "61bb122f2fc37a8c901f7d3c";
 const id2 = "61bb122f2fc37a8c901f7d3d";
 const id3 = "61bb122f2fc37a8c901f7d3e";
 
-xdescribe('test for Personal Story route', () => {
+describe('test for Personal Story route', () => {
     beforeEach(async () => {
         await PersonalStory.deleteMany()
             .then(() => console.log('empty database'))

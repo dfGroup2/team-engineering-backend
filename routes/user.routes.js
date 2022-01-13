@@ -33,7 +33,7 @@ router.get(`/graduateUsers/:id`, [authJWT.verifyToken, authJWT.isGraduateUser], 
 
 const { GraduateUser } = require('../models/graduateUser.model');
 router.route('/graduateUsers/:id')
-	.put((req, res) => {
+	.put([authJWT.verifyToken, authJWT.isGraduateUser], (req, res) => {
 		const id = req.params.id;
 		GraduateUser.findById(id, (error, graduateUser) => {
 			if (!graduateUser) {

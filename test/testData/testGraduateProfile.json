@@ -9,9 +9,6 @@
         "linkedIn": "dummyLinkedIn",
         "phoneNumber": 123456,
         "profilePicture": "hello",
-        "personalStory": [
-            "dummy story"
-        ],
         "gender": "male",
         "nationality": "english",
         "personality": "dummyPersonality"
@@ -26,9 +23,6 @@
         "linkedIn": "dummyLinkedIn2",
         "phoneNumber": 1234562,
         "profilePicture": "hello2",
-        "personalStory": [
-            "dummy story2"
-        ],
         "gender": "female",
         "nationality": "american",
         "personality": "dummyPersonality2"
@@ -43,9 +37,6 @@
         "linkedIn": "dummyLinkedIn3",
         "phoneNumber": 1234563,
         "profilePicture": "hello3",
-        "personalStory": [
-            "dummy story3"
-        ],
         "gender": "other",
         "nationality": "european",
         "personality": "dummyPersonality3"
