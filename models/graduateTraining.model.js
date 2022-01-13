@@ -3,9 +3,9 @@ const { isoDateRegex } = require('../js/regularExpressions');
 
 const { Schema } = mongoose;
 const graduateTrainingSchema = new Schema({
-	learningPath: { type: String, required: true, default: "software engineering" },
+	learningPath: { type: String, required: true, default: "Software engineering" },
 	cohort: { type: String, required: true, default: "mse-3" },
-	trainer: { type: String, required: true, default: "ed" },
+	trainer: { type: String, required: true, default: "Ed Wright" },
 	finishedDate: { type: Date, required: true, match: [isoDateRegex, "invalid date"], default: "2021-12-01T13:20:36.186Z" },
 	courseModules: {
 		fundamentals: {

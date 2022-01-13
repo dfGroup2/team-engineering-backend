@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const { emailRegex } = require('../js/regularExpressions');
-
 const { Schema } = mongoose;
+
 const graduateProfileSchema = new Schema({
     firstName: { type: String, required: true, default: "defaultFirstName" },
     lastName: { type: String, required: true, default: "defaultLastName" },
-    personalEmail: { type: String, required: true, match: [emailRegex, 'Invalid email'], default: "test@email.com" },
-    DFEmail: { type: String, required: true, match: [emailRegex, 'Invalid email'], default: "test@email.com" },
+    personalEmail: { type: String, required: true, match: [emailRegex, 'Invalid email'], default: "default@email.com" },
+    DFEmail: { type: String, required: true, match: [emailRegex, 'Invalid email'], default: "defaultDF@email.com" },
     github: { type: String },
     linkedIn: { type: String },
     phoneNumber: { type: Number },
