@@ -24,28 +24,7 @@ function initial() {
 				if (err) {
 					console.log("error", err);
 				}
-
 				console.log("added 'graduateUser' to roles collection");
-			});
-
-			new Role({
-				name: "industryPartner"
-			}).save(err => {
-				if (err) {
-					console.log("error", err);
-				}
-
-				console.log("added 'industryPartner' to roles collection");
-			});
-
-			new Role({
-				name: "dfAdmin"
-			}).save(err => {
-				if (err) {
-					console.log("error", err);
-				}
-
-				console.log("added 'dfAdmin' to roles collection");
 			});
 		}
 	});
